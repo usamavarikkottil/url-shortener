@@ -8,13 +8,11 @@ app.use(express.json());
 // Connect to Database
 connectDB();
 
-app.get("/", (req, res) => {
-    res.send("Hi! Iam ready!");
-});
 
-app.post("/", (req, res) => {
-    res.send("Hi! Post okay...!");
-});
+// Routes
+app.use("/", require("./routes/index"));
+app.use("/api/url", require("./routes/url"));
+
 
 
 const port = process.env.port || 5000
